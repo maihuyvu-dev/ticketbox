@@ -1,6 +1,7 @@
 # TICKETBOX
 
 ## Cấu trúc thư mục
+```text
 ticketbox/
 │
 ├── README.md
@@ -24,3 +25,4 @@ ticketbox/
 │   └── README.md
 │
 └── assets/
+```
