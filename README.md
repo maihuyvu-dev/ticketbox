@@ -62,7 +62,7 @@ ticketbox/
 ```bash
 git checkout develop
 git pull origin develop
-git checkout -b feature/<feature-name>
+git checkout -b module
 ```
 
 2. Thực hiện công việc trên nhánh cá nhân.
