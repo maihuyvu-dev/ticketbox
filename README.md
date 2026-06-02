@@ -33,21 +33,20 @@ ticketbox/
 
 ```text
 ## Branch Structure
-    ├── main
-    │
-    ├── develop
-    │
-    ├── backend
-    │   └── b_<feature-name>
-    │
-    ├── frontend
-    │   └── f_<feature-name>
-    │
-    ├── mobileapp
-    │   └── m_<feature-name>
-    │
-    └── infra
-        └── i_<feature-name>
+├── main
+│
+├── develop
+│
+├── backend
+├── frontend
+├── mobileapp
+└── infra
+
+(Optional)
+├── b_<feature-name>
+├── f_<feature-name>
+├── m_<feature-name>
+└── i_<feature-name>
 ```
 
 * `main`: Chứa phiên bản ổn định của dự án, sẵn sàng triển khai.
@@ -57,27 +56,35 @@ ticketbox/
 
 ### Development Workflow
 
-1. Luôn tạo nhánh mới từ `develop` khi bắt đầu một công việc.
+1. Luôn pull từ `develop` khi có thay đổi trước khi bắt đầu công việc.Không pull từ main vào các nhánh module. Các nhánh module phải thường xuyên đồng bộ với develop để nhận các thay đổi mới nhất từ các thành viên khác.
 
 ```bash
-git checkout develop
+git checkout branch_name
 git pull origin develop
-git checkout -b module
 ```
 
 2. Thực hiện công việc trên nhánh cá nhân.
 
-3. Commit thường xuyên với nội dung rõ ràng và tuân theo quy ước đặt tên commit của dự án.
+3. Commit thường xuyên với nội dung rõ ràng và tuân theo quy ước đặt tên commit của dự án, tránh làm rất nhiều thứ rồi mới commit 1 lần.
+Sử dụng các tiền tố sau:
+
+```text
+feat: thêm chức năng mới
+fix: sửa lỗi
+docs: cập nhật tài liệu
+refactor: cải tiến mã nguồn
+style: thay đổi định dạng mã nguồn
+test: bổ sung hoặc chỉnh sửa kiểm thử
+chore: thay đổi cấu hình, Docker, CI/CD,...
+```
 
 4. Sau khi hoàn thành, cập nhật nhánh với phiên bản mới nhất của `develop` và xử lý mọi xung đột nếu có.
 
-5. Tạo Pull Request (PR) từ nhánh `feature/*` vào `develop`.
+5. Tạo Pull Request (PR) từ nhánh `branch_name (module của bạn)` vào `develop`.
 
-6. Chỉ merge khi đáp ứng đầy đủ các điều kiện kiểm tra.
+### Pull request Requirements
 
-### Merge Requirements
-
-Trước khi merge vào `develop`, thành viên phải đảm bảo:
+Trước khi Pull request vào `develop`, thành viên phải đảm bảo:
 
 * Code biên dịch và chạy thành công.
 * Không còn lỗi cú pháp hoặc lỗi runtime đã biết.
